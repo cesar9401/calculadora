@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<title>Super Calc</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row my-4">
+			<div class="col text-center mt-4">
+				<h1 class="display-2 text-primary">SUPER CALC</h1>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col col-lg-6 p-1">
+				<textarea class="form-control text-end fs-3" placeholder="0" id="text" readonly wrap="off"></textarea>
+			</div>
+		</div>
+
+		<div class="row justify-content-center my-2">
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button"class="btn btn-dark btn-lg" data-value="!">x!</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="^">^</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="(">(</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value=")">)</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="e">e</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-secondary btn-lg" id="btn-ac">AC</button>
+			</div>
+		</div>
+
+		<div class="row justify-content-center my-2">
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="log">log</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="sin">sin</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="7">7</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="8">8</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="9">9</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" id="btn-divide" data-value="/">/</button>
+			</div>
+		</div>
+
+		<div class="row justify-content-center my-2">
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="ln">ln</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="cos">cos</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="4">4</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="5">5</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="6">6</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="*" id="btn-multiplication">x</button>
+			</div>
+		</div>
+
+		<div class="row justify-content-center my-2">
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="pi" id="pi">pi</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="tan">tan</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="1">1</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="2">2</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="3">3</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="-"> - </button>
+			</div>
+		</div>
+
+		<div class="row justify-content-center my-2">
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-secondary btn-lg" data-value="ans">Ans</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="EXP">EXP</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="0">0</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value=".">.</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-success btn-lg" id="btn-equal">=</button>
+			</div>
+			<div class="col col-lg-1 d-grid px-1">
+				<button type="button" class="btn btn-dark btn-lg" data-value="+">+</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="src/app.js"></script>
+</body>
+</html>
