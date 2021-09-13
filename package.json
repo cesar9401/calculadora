@@ -2,19 +2,21 @@
     "name": "calc",
     "version": "1.0.0",
     "description": "super calculadora",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
-        "live": "live-server"
-    },
+		"start": "node app.js",
+		"dev": "nodemon app.js"
+	},
     "keywords": [
         "calculadora"
     ],
     "author": "Cesar Tzoc <csartalva01@gmail.com>",
     "license": "MIT",
-    "devDependencies": {
-        "live-server": "^1.2.1"
-    },
     "dependencies": {
-        "bootstrap": "^5.1.1"
+        "ejs": "^3.1.6",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.12"
     }
 }
