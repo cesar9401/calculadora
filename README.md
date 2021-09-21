@@ -18,5 +18,5 @@ npm install
 ```
 Ejecutar con:
 ```sh
-npm run live
+npm run start
 ```
