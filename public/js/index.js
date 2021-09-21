@@ -1,10 +1,12 @@
 const DIVIDE = String.fromCharCode(247);
 const PI = String.fromCharCode(960);
 const TIMES = String.fromCharCode(215);
+const SQRT = String.fromCharCode(8730);
 
 document.querySelector('#btn-divide').innerHTML = DIVIDE;
 document.querySelector('#pi').innerHTML = PI;
 document.querySelector('#btn-multiplication').innerHTML = TIMES;
+document.querySelector('#btn-sqrt').innerHTML = SQRT;
 
 const equal = document.querySelector('#btn-equal');
 const ac = document.querySelector('#btn-ac');
@@ -23,6 +25,8 @@ function getValue(e) {
 		push(TIMES);
 	} else if(data === 'pi'){
 		push(PI);
+	} else if(data === 'sqrt') {
+		push(`${SQRT}(`);
 	} else {
 		push(data);
 	}
@@ -74,7 +78,7 @@ function changeInput(e) {
 		}
 
 		if(k === 'x') {
-			push('EXP')
+			push(`${SQRT}(`)
 		}
 
 		if(k === 'backspace') {
