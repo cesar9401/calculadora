@@ -1,0 +1,48 @@
+version: '3'
+services:
+  worker:
+    build:
+      dockerfile: Dockerfile
+      context: ./worker
+    expose:
+      - "3002"
+  apirest:
+    build:
+      dockerfile: Dockerfile
+      context: ./api
+    volumes:
+      - ./api/routes:/app/routes
+      - ./api/utils:/app/utils
+      - ./api/index.js:/app/index.js
+      - ./api/package.json:/app/package.json
+    environment:
+      - WORKER_HOST=worker
+      - WORKER_PORT=3002
+    depends_on:
+      - worker
+    #ports:
+    #  - "3001:3001"
+  site:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile
+      context: ./calc
+    volumes:
+      - ./calc/public:/app/public
+      - ./calc/routes:/app/routes
+      - ./calc/views:/app/views
+      - ./calc/app.js:/app/app.js
+      - ./calc/package.json:/app/package.json
+    #ports:
+    #  - "80:3000"
+  nginx:
+    depends_on:
+      - site
+      - apirest
+      - worker
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "80:80"
