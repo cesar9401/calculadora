@@ -1,0 +1,22 @@
+{
+    "name": "calc",
+    "version": "1.0.0",
+    "description": "super calculadora",
+    "main": "app.js",
+    "scripts": {
+		"start": "node app.js",
+		"dev": "nodemon app.js"
+	},
+    "keywords": [
+        "calculadora"
+    ],
+    "author": "Cesar Tzoc <csartalva01@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.12"
+    }
+}

@@ -1,22 +1,15 @@
 # Super Calculadora
 
-## Tarea 1 (rama fase1)
-Calculadora con html, css y javascript.
-Instalar dependencias:
-``` sh
-npm install
-```
+Calculadora desde servidor nodejs
+api-rest con express
+worker con express
+
 Ejecutar con:
 ```sh
-npm run live
+docker-compose up -d --build
 ```
 
-## Tarea 2 (rama fase2)
-Servidor http con express
-``` sh
-npm install
+Verificar en el navegador:
 ```
-Ejecutar con:
-```sh
-npm run start
+http://localhost/
 ```
