@@ -1,6 +1,5 @@
+const { host, port } = require('./redis-config');
 const redis = require('redis');
-const host = process.env.REDIS_HOST;
-const port = process.env.REDIS_PORT;
 
 const redisClient = redis.createClient({ host: host, port: port, retry_strategy: () => 1000 });
 
@@ -15,9 +14,8 @@ const getHistory = () => {
 		redisClient.HGETALL('operations', (error, exist) => {
 			if(error) {
 				reject(0);
-			} else {
-				resolve(exist);
 			}
+			resolve(exist);
 		});
 	});
 }

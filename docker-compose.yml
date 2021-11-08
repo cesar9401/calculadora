@@ -21,6 +21,7 @@ services:
       - WORKER_PORT=3002
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - TOKEN_SECRET=PNOumM2WV3L4RlnQC0GadK4r9u0gWi1N
     depends_on:
       - worker
     #ports:
