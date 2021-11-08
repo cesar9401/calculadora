@@ -1,28 +1,36 @@
 const { Router } = require('express');
 const axios = require('axios');
 const router = new Router();
+
+const { setOperation, getHistory } = require('../utils/history');
+
 const workerhost = process.env.WORKER_HOST;
 const workerport = process.env.WORKER_PORT;
 const worker = `http://${workerhost}:${workerport}/math/operation`;
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const { ans, operation } = req.body;
 	const params = { ans: ans, operation: operation };
 
-	axios.get(worker, { port: Number.parseInt(workerport), params })
-		.then(response => {
-			// console.log(`from api: ${response.data}`);
-			res.status(200).json(response.data);
-		})
-		.catch(error => {
-			res.status(200).json(data);
-		});
+	try {
+		const resultado = await axios.get(worker, { port: Number.parseInt(workerport), params });
+		const save = await setOperation(operation, resultado.data.ans);
+		//const hist = await getHistory();
+		//console.log(hist);
+		res.status(200).json(resultado.data);
+	} catch (error) {
+		console.error(error);
+		res.status(200).json({ ok: false, ans: "Error de conexion con worker" });
+	}
 });
 
-router.post("/suma", (req, res) => {
-	const { op1, op2 } = req.body;
-	const result = Number(op1) + Number(op2);
-	res.status(200).json({ resultado: result });
+router.get("/", async (req, res) => {
+	try{
+		const hist = await getHistory();
+		res.status(200).json(hist);
+	} catch(error) {
+		res.status(200).json({ ok: false });
+	}
 });
 
 module.exports = router;

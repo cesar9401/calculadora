@@ -1,5 +1,7 @@
 version: '3'
 services:
+  redis:
+    image: 'redis:latest'
   worker:
     build:
       dockerfile: Dockerfile
@@ -17,6 +19,8 @@ services:
     environment:
       - WORKER_HOST=worker
       - WORKER_PORT=3002
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     depends_on:
       - worker
     #ports:
