@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 
 const operation = require('./routes/operation');
@@ -9,9 +8,6 @@ app.set('port', process.env.PORT || 3001);
 
 // leer json
 app.use(express.json());
-
-// cors
-// app.use(cors());
 
 // routes
 app.use('/api/operation', operation);

@@ -12,7 +12,6 @@ services:
       context: ./api
     volumes:
       - ./api/routes:/app/routes
-      - ./api/utils:/app/utils
       - ./api/index.js:/app/index.js
       - ./api/package.json:/app/package.json
     environment:

@@ -1,16 +1,16 @@
 {
-  "name": "worker",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
-  },
-  "keywords": [],
-  "author": "Cesar Tzoc <csartalva01@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+	"name": "worker",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node src/index.js",
+		"dev": "nodemon src/index.js"
+	},
+	"keywords": [],
+	"author": "Cesar Tzoc <csartalva01@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.17.1"
+	}
 }

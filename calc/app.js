@@ -24,7 +24,7 @@ app.get('/faqs', (req, res) => {
 
 app.use((req, res, next) => {
 	res.sendFile(path.join(__dirname, './views/404.html'));
-})
+});
 
 app.listen(app.get('port'), () => {
 	console.log(`listen on http://localhost:${app.get('port')}`);
