@@ -2,7 +2,7 @@ const api = `http://localhost/api/operation`;
 const tbody = document.querySelector("tbody");
 
 async function getHistory() {
-	const hist = await fetch(api, { method: 'GET' });
+	const hist = await fetch(api, { method: 'GET', headers: { 'Content-Type': 'application/json', 'authorization': window.localStorage.getItem('authorization') ?? '' }});
 	const res = await hist.json();
 	renderHistory(res);
 }

@@ -11,6 +11,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
+	res.sendFile(path.join(__dirname, './views/login.html'));
+});
+
+app.get('/signup', (req, res) => {
+	res.sendFile(path.join(__dirname, './views/signup.html'));
+});
+
+app.get('/calc', (req, res) => {
 	res.render('index');
 });
 

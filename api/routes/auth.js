@@ -43,12 +43,12 @@ router.post('/login', async (req, res) => {
 					const tkn = signToken(email);
 					res.status(201).json({ token: tkn });
 				} else {
-					res.status(201).json({ res: "credenciales incorrectas" });
+					res.status(403).json({ res: "credenciales incorrectas" });
 				}
 			});
 		}
 	} catch (error) {
-		res.status(503).send("inaccesible");
+		res.status(503).json({ res: "Servidor Inaccesible" });
 	}
 });
 

@@ -9,7 +9,7 @@ const signToken = id => {
 const checkToken = async (req, res, next) => {
 	const token = req.headers.authorization;
 	if(!token) {
-		return res.sendStatus(401);
+		return res.sendStatus(511);
 	}
 
 	webtoken.verify(token, tokensecret, async (error, decoded) => {
@@ -20,10 +20,10 @@ const checkToken = async (req, res, next) => {
 				req.user = id;
 				next();
 			} else {
-                res.status(401).json({ success: 0 });
+                res.status(511).json({ success: 0 });
 			}
 		} else {
-			res.status(401).json({ success: 0 });
+			res.status(511).json({ success: 0 });
 		}
 	});
 }
