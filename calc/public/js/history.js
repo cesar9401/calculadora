@@ -4,6 +4,12 @@ const tbody = document.querySelector("tbody");
 async function getHistory() {
 	const hist = await fetch(api, { method: 'GET', headers: { 'Content-Type': 'application/json', 'authorization': window.localStorage.getItem('authorization') ?? '' }});
 	const res = await hist.json();
+
+	if(res.success !== undefined) {
+		showModal('Se necesitan credenciales para usar la calculadora.');
+		return;
+	}
+
 	renderHistory(res);
 }
 
@@ -22,4 +28,13 @@ function renderHistory(data) {
 
 		tbody.appendChild(tr);
 	}
+}
+
+function showModal(res) {
+	document.querySelector('#modal-info-calc').innerHTML = res;
+	const myModal = new bootstrap.Modal(document.getElementById('modal-calc'), { focus: true });
+	document.getElementById('modal-calc').addEventListener('hidden.bs.modal', () => {
+		window.location = '/';
+	});
+	myModal.show();
 }

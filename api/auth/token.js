@@ -9,21 +9,27 @@ const signToken = id => {
 const checkToken = async (req, res, next) => {
 	const token = req.headers.authorization;
 	if(!token) {
-		return res.sendStatus(511);
+		return res.status(511).json({ success: 0 })
+		// return res.sendStatus(511);
 	}
 
 	webtoken.verify(token, tokensecret, async (error, decoded) => {
 		if(decoded) {
-			const { id } = decoded;
-			const isUser = await exist(id);
-			if(isUser !== 0) {
-				req.user = id;
-				next();
-			} else {
-                res.status(511).json({ success: 0 });
+			try {
+				const { id } = decoded;
+				const isUser = await exist(id);
+				if(isUser !== 0) {
+					req.user = id;
+					next();
+				} else {
+					res.status(401).json({ success: 0 });
+				}
+			} catch (error) {
+				console.error(error);
+				res.status(511).json({ success: 0 });
 			}
 		} else {
-			res.status(511).json({ success: 0 });
+			res.status(403).json({ success: 0 });
 		}
 	});
 }
